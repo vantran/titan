@@ -109,6 +109,13 @@ module Titan
         find(id).kill
       end
 
+      def kill_all
+        all.each do |id, thread|
+          thread.kill if thread.alive?
+        end
+        remove_dead_threads
+      end
+
       #
       # Returns all Titan-managed threads
       #
