@@ -27,6 +27,14 @@ module Titan
       Process.kill('KILL', @pid)
     end
 
+    def sigterm
+      Process.kill('TERM', @pid)
+    end
+
+    def usr1
+      Process.kill('USR1', @pid)
+    end
+
     #
     # Returns whether the thread is alive or not
     #
